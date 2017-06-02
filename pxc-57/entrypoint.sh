@@ -120,7 +120,7 @@ function join {
 # Read the list of registered IP addresses
 set +e
 
-ipaddr=$(hostname -i | awk ' { print $1 } ')
+ipaddr=$(hostname -I | awk ' { print $1 } ')
 hostname=$(hostname)
 
 curl http://$DISCOVERY_SERVICE/v2/keys/pxc-cluster/queue/$CLUSTER_NAME -XPOST -d value=$ipaddr -d ttl=60
